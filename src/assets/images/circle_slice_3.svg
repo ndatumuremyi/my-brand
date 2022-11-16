@@ -1,0 +1,15 @@
+<svg width="60" height="120" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_213_126)">
+<path d="M60 120C93.1371 120 120 93.1371 120 60C120 26.8629 93.1371 0 60 0C26.8629 0 0 26.8629 0 60C0 93.1371 26.8629 120 60 120Z" fill="url(#paint0_radial_213_126)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_213_126" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60) rotate(90) scale(120)">
+<stop stop-color="white"/>
+<stop offset="0.569" stop-color="#F0F4FD"/>
+<stop offset="0.993" stop-color="#D9E0F0"/>
+</radialGradient>
+<clipPath id="clip0_213_126">
+<rect width="60" height="120" fill="white"/>
+</clipPath>
+</defs>
+</svg>

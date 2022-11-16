@@ -1,0 +1,680 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background-color: #F9F9F9;;
+}
+:root{
+    --brand_bold: #150B40;
+    --brand_color:#1F087B;
+    --brand_second:#016648;
+    --white:rgb(255 255 255);
+    --white_light:#959CB1;
+    --black:rgb(0 0 0);
+    --black_06:rgba(0, 0, 0, 0.6);
+    --second_gradient:linear-gradient(112.55deg, #26CD7D 29.45%, rgba(239, 243, 13, 0.99) 63.11%, #14FF00 96.78%);
+    --third_gradient:linear-gradient(180deg, #360DDB 33.1%, rgba(35, 22, 35, 0.87) 89.58%, rgba(151, 201, 9, 0.62) 91.09%, #070113 98.95%, rgba(35, 22, 42, 0.875932) 98.96%);
+}
+
+.header_content{
+    min-height: 15rem;
+}
+.brand_image{
+    height: 100%;
+    translate: -30px -30px;
+}
+.brand_image_div{
+    position: relative;
+    height: 277px;
+    border: white 2px solid;
+}
+.brand_image_div::after{
+    content:url("../assets/images/utudomo.svg");
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    translate: 60px -20px;
+    height: 40px;
+}
+.skills_div{
+    position: relative;
+}
+.skills_div::before{
+    content:url("../assets/images/circle_slice_2.svg");
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.skills_div::after{
+    content:url("../assets/images/rectangle_1.svg");
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.header{
+    height: 533px;
+    position: relative;
+}
+.header::after{
+    content:url("../assets/images/circle_slice1.svg");
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    height: 40px;
+}
+
+.brand_image_div::before{
+    content:url("../assets/images/utudomo.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -60px -60px;
+    height: 40px;
+}
+
+.zig_zag_left{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    translate: -110px 40px;
+}
+
+.zig_zag_right{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    translate: 110px -100px;
+    rotate: -90deg;
+}
+.zig_zad_center{
+    position: absolute;
+    top:80px;
+    left: 0;
+    translate: -110px -10px;
+}
+#build_and_write_dev{
+    position: relative;
+}
+#build_and_write_dev::after{
+    content: "";
+    width: 2px;
+    left: 50%;
+    position: absolute;
+    height: 100%;
+    background-color: rgba(31, 8, 123,50%);
+}
+.desing_eng{
+    position: relative;
+}
+.desing_eng::after{
+    content: url("../assets/images/circle_slice_3.svg");
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #D7DFFF;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid var(--brand_color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+        left: 15px;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0;
+    }
+}
+
+.happy_codding{
+    position: relative;
+}
+.happy_codding::before{
+    content: '';
+    height: 3px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255,10%);
+
+}
+.footer{
+    position: relative;
+}
+.footer::before{
+    content: url("../assets/images/utudomo_2.svg");
+    position: absolute;
+    top:0;
+    right: 0;
+}
+footer::after{
+    content: url("../assets/images/ring_slice_1.svg");
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.text-white-light{
+    color: var(--white_light);
+}
+.bg-black{
+    background: var(--black);
+}
+.bg-white{
+    background: var(--white);
+}
+.text-white{
+    color: var(--white);
+}
+.text-black{
+    color: var(--black);
+}
+.text-second{
+    background: var(--second_gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*background-clip: text;*/
+    color: transparent;
+}
+.text-black-light{
+    color: var(--black_06);
+}
+.text-third{
+    background: var(--third_gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*background-clip: text;*/
+    color: transparent;
+}
+.font-bold{
+    font-weight: bold;
+}
+.tracking-wide {
+    letter-spacing: 0.025em;
+}
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.button_light{
+    border-radius: 1.75rem; /* 12px */
+    border-color: var(--brand_second);
+    padding: 0.78rem 2rem;
+    color: var(--brand_second);;
+    border-width: 0.20rem;
+    border-style: solid;
+}
+.button_primary{
+    border-radius: 1.75rem; /* 12px */
+    border-color: var(--brand_color);
+    padding: 0.78rem 2rem;
+    color: var(--white);
+    background-color: var(--brand_color);
+    border-width: 0.20rem;
+    border-style: solid;
+}
+
+.button-third{
+    border-color: var(--black_06);
+    padding: 0.78rem 2rem;
+    color: var(--black_06);
+    border-width: 0.20rem;
+    border-style: solid;
+}
+
+#figma_icon{
+    height: 106px;
+    width: 72px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.text-center{
+    text-align: center;
+}
+
+
+.py-9{
+    padding-top: 2.25rem; /* 36px */
+    padding-bottom: 2.25rem; /* 36px */
+}
+.my-9{
+    margin-top: 2.25rem; /* 36px */
+    margin-bottom: 2.25rem; /* 36px */
+}
+.px-9{
+    padding-left: 2.25rem; /* 36px */
+    padding-right: 2.25rem; /* 36px */
+}
+.pt-9{
+    padding-top: 2.25rem;
+}
+.mx-9{
+    margin-left: 2.25rem; /* 36px */
+    margin-right: 2.25rem; /* 36px */
+}
+.mb-12{
+    margin-bottom: 3rem; /* 48px */
+}
+.mx-20{
+    margin-left: 5rem; /* 80px */
+    margin-right: 5rem; /* 80px */
+}
+.pt-20{
+    padding-top: 5rem;
+}
+.py-20{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.px-20{
+    padding-left: 5rem; /* 80px */
+    padding-right: 5rem; /* 80px */
+}
+.mx-5{
+    margin-left: 1.25rem; /* 20px */
+    margin-right: 1.25rem; /* 20px */
+}
+.gap-2 {
+    gap: 0.5rem; /* 8px */
+}
+.gap-3 {
+    gap: 0.75rem; /* 12px */
+}
+.gap-4 {
+    gap: 1rem; /* 16px */
+}
+.gap-5 {
+    gap: 1.25rem; /* 20px */
+}
+.gap-6 {
+    gap: 1.5rem; /* 24px */
+}
+.gap-7 {
+    gap: 1.75rem; /* 28px */
+}
+.bg-brand_bold{
+    background: var(--brand_bold);
+}
+.nav_btn{
+    padding: 0.23rem;
+}
+button{
+    background: transparent;
+    border: none;
+    color: white;
+}
+.rounded-lg {
+    border-radius: 0.5rem; /* 8px */
+}
+.rounded-xl {
+    border-radius: 0.75rem; /* 12px */
+}
+
+.h-0 {
+    height: 0;
+}
+
+.h-12 {
+    height: 3rem; /* 48px */
+}
+
+.h-auto {
+    height: auto;
+}
+.h-full {
+    height: 100%;
+}
+.h-screen {
+    height: 100vh;
+}
+.h-min {
+    height: min-content;
+}
+.h-max {
+    height: max-content;
+}
+.h-fit {
+    height: fit-content;
+}
+
+
+
+.w-full {
+    width: 100%;
+}
+.w-screen {
+    width: 100vw;
+}
+.w-min {
+    width: min-content;
+}
+.w-max {
+    width: max-content;
+}
+.w-fit {
+    width: fit-content;
+}
+
+.gap-12{
+    gap: 3rem; /* 48px */
+}
+.mr-12{
+    margin-right: 3rem; /* 48px */
+}
+
+
+.text-xs {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+}
+.text-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+}
+.text-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+}
+.text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+}
+.text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+}
+.text-2xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+}
+.text-3xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+}
+.text-4xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+}
+.text-5xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+}
+.text-6xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+}
+.text-7xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+}
+.text-8xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+}
+.text-9xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+}
+
+
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+.flex-row {
+    flex-direction: row;
+}
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.flex-1 {
+    flex: 1 1 0;
+}
+.flex-auto {
+    flex: 1 1 auto;
+}
+.flex-initial {
+    flex: 0 1 auto;
+}
+.flex-none {
+    flex: none;
+}
+.grow {
+    flex-grow: 1;
+}
+.grow-0 {
+    flex-grow: 0;
+}
+.shrink {
+    flex-shrink: 1;
+}
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-around {
+    justify-content: space-around;
+}
+.justify-evenly {
+    justify-content: space-evenly;
+}
+.justify-items-start {
+    justify-items: start;
+}
+.justify-items-end {
+    justify-items: end;
+}
+.justify-items-center {
+    justify-items: center;
+}
+.justify-items-stretch {
+    justify-items: stretch;
+}
+.justify-self-auto {
+    justify-self: auto;
+}
+.justify-self-start {
+    justify-self: start;
+}
+.justify-self-end {
+    justify-self: end;
+}
+.justify-self-center {
+    justify-self: center;
+}
+.justify-self-stretch {
+    justify-self: stretch;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+.items-end {
+    align-items: flex-end;
+}
+.items-center {
+    align-items: center;
+}
+.items-baseline {
+    align-items: baseline;
+}
+.items-stretch {
+    align-items: stretch;
+}
