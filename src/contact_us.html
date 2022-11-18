@@ -8,6 +8,101 @@
     <title>Welcome !</title>
 </head>
 <body>
+<div class="flex flex-col">
+    <header class="bg-brand_bold text-white flex flex-col header">
+        <nav class="flex w-full justify-between items-center">
+            <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+            <nav class="flex gap-12 mr-12">
+                <button class="nav_btn">Skills</button>
+                <button class="nav_btn">Work</button>
+                <button class="nav_btn">Contact us</button>
+            </nav>
+        </nav>
+        <div id="my_bland" class="flex justify-evenly items-center h-full">
+            <div class="header_content flex flex-col justify-evenly ">
+                <h5 class="text-second text-5xl font-bold tracking-wider">
+                    Contact Me
+                </h5>
+                <p class="text-white-light">
+                    Ping me up!!
+                </p>
+            </div>
+            <div class="brand_image_div">
+                <span class=" brand_image_div material-symbols-outlined text-9xl text-white">headset_mic</span>
+                <img class="zig_zag_left" src="assets/images/zigizaga_colored.svg" alt=""/>
+                <img class="zig_zag_right" src="assets/images/zigizaga_colored.svg" alt=""/>
+                <img class="zig_zad_center" src="assets/images/zigizaga_white.svg" alt=""/>
+            </div>
+        </div>
+    </header>
+    <main class="flex flex-col gap-12 bg-brand_bold contact_main relative">
+        <form class="h-contact bg-brand_color_light mx-20 flex flex-col items-center justify-evenly py-20 rounded-xl contact_form">
+            <div class="flex gap-7 w-42">
+                <label class="w-full">
+                    <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="text" placeholder="Names" />
+                </label>
+                <label class="w-full">
+                    <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="email" placeholder="Email" />
+                </label>
+            </div>
+            <div class="flex gap-7 w-42">
+                <label class="w-full">
+                    <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="tel" placeholder="Phone number" />
+                </label>
+                <label class="w-full">
+                    <select class="bg-white-13 border-none rounded-lg px-9 py-4 text-white-light w-full">
+                        <option class="bg-brand_color text-white-light">Hire Me</option>
+                        <option class="bg-brand_color text-white-light">Ask Question</option>
+                        <option class="bg-brand_color text-white-light">Say hello</option>
+                    </select>
+                </label>
+            </div>
+            <label class="w-42">
+                <textarea class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" rows="10">
 
+                </textarea>
+            </label>
+
+            <button class="rounded-xl px-9 py-4 w-20 my-9 bg-brand_color text-white-light">
+                Contact
+            </button>
+
+        </form>
+    </main>
+    <footer class="flex flex-col bg-brand_bold text-white justify-between px-9 py-9 footer">
+        <div class="flex justify-between pt-9 mb-12">
+            <div id="let_talk" class="flex flex-col gap-7">
+                <h3 class="text-4xl">Let's Talk!</h3>
+                <h4>Contact info</h4>
+                <p class="text-white-light">paternenught@gmail.com</p>
+                <p class="text-white-light">UR-CST Kigali</p>
+                <p class="text-white-light">+250 786 388 768</p>
+            </div>
+            <div id="what_i_do" class="flex flex-col gap-7">
+                <h4>What I Do?</h4>
+                <p class="text-white-light">Designing</p>
+                <p class="text-white-light">Coding</p>
+                <p class="text-white-light">Planning</p>
+                <p class="text-white-light">Leading</p>
+
+            </div>
+            <div id="quick_link" class="flex flex-col gap-7">
+                <h4>Quick Links</h4>
+                <button class="text-white-light">Blog</button>
+                <button class="text-white-light">Login</button>
+                <button class="text-white-light">Github</button>
+                <button class="text-white-light">Resume</button>
+                <button class="text-white-light">Slack</button>
+
+
+
+            </div>
+        </div>
+        <p class="flex justify-center text-white-light py-20 happy_codding">
+            Happy Codding!
+        </p>
+
+    </footer>
+</div>
 </body>
 </html>
