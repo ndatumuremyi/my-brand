@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="css/index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome !</title>
+</head>
+<body>
+<div class="flex flex-col overflow-x-hidden">
+  <header class="bg-brand_bold text-white flex flex-col header">
+    <nav class="flex w-full justify-between items-center nav_div fixed top-0 z-60 bg-brand_bold">
+      <a href="index.html" class="no-underline">
+        <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+      </a>
+
+      <nav class="gap-12 mr-12 -md:hidden md:flex">
+        <a
+                href="#skills_div"
+                class="nav_btn no-underline appearance-none text-white"
+        >Skills</a
+        >
+        <a
+                href="my_works.html"
+                class="nav_btn no-underline appearance-none text-white"
+        >Work</a
+        >
+        <a
+                href="contact_us.html"
+                class="nav_btn no-underline appearance-none text-white"
+        >Contact us</a
+        >
+      </nav>
+    </nav>
+    <div id="my_bland" class="flex justify-evenly items-center h-full">
+      <div class="header_content flex flex-col justify-evenly ">
+        <h5 class="text-second text-5xl font-bold tracking-wider">
+          Articles
+        </h5>
+        <p class="text-white-light px-5">
+          Through reading you can get insight !!
+        </p>
+      </div>
+      <div class="brand_image_div">
+        <span class=" brand_image_div material-symbols-outlined text-9xl text-white">auto_stories</span>
+        <img class="zig_zag_left" src="assets/images/zigizaga_colored.svg" alt=""/>
+        <img class="zig_zag_right" src="assets/images/zigizaga_colored.svg" alt=""/>
+        <img class="zig_zad_center" src="assets/images/zigizaga_white.svg" alt=""/>
+      </div>
+    </div>
+  </header>
+  <main class="flex flex-col gap-12 contact_main relative my-9">
+    <div class="flex gap-5 mx-9 flex-wrap">
+      <button class="rounded-xl bg-brand_color text-white-light p-4"> All</button>
+      <button class="rounded-xl  text-white-light p-4"> Life</button>
+      <button class="rounded-xl text-white-light p-4"> Tech</button>
+      <button class="rounded-xl text-white-light p-4"> Dev</button>
+      <label class="">
+        <input type="text" class="h-12 rounded-xl"/>
+      </label>
+
+    </div>
+    <div id="blogsContainer" class="flex flex-wrap gap-5 justify-center">
+      <div id="blog_single_view_client" class="flex flex-col bg-brand-third items-center rounded-xl gap-6 px-5 py-9 text-white-light">
+        <div class="rounded-xl overflow-hidden relative">
+          <img id="blog_image" src="assets/images/coffee_boy.svg" width="310" alt=""/>
+          <div class="absolute flex justify-between top-0 w-full px-5 pt-2">
+            <span class="text-red flex flex-col items-center gap-1 cursor-pointer bg-white_blue_light p-2 rounded-full">
+              <span class="material-symbols-outlined">favorite</span>
+              <span id="blog_likes">0</span>
+            </span>
+            <span class="text-brand-color flex flex-col items-center gap-1 cursor-pointer bg-white_blue_light p-2 rounded-full">
+              <span class="material-symbols-outlined">chat</span>
+              <span id="blog_comments">0</span>
+            </span>
+          </div>
+        </div>
+        <p id="blog_title" class="max-w-xs text-center text-xl">Why figma is the best designing tools on web ?</p>
+        <div class="flex justify-between w-full gap-2">
+          <span id="blog_category" class="text-xs">DESIGN</span>
+          <span id="blog_createdAt" class="text-xs">MAR 15TH '22</span>
+        </div>
+        <button id="view_more_blog" type="button" class="px-9 no-underline text-center py-4 text-brand-color bg-white rounded-xl bold">Read More</button>
+      </div>
+
+    </div>
+    <form id="subscribe_form" class="bg-brand_bold flex flex-col items-center py-9 mx-9 rounded-xl gap-12" novalidate>
+      <h2 class="text-second text-3xl">Interested in my articles ?</h2>
+      <label>
+        <input name="email" id="email_field" class="py-2 w-20 rounded-xl" type="email" alt="" />
+        <span id="email_error" class="text-red-light left-3 bottom-0 error"></span>
+      </label>
+      <button class="px-5 py-4 rounded-lg bg-white_blue_light"> <span class="text-brand-color">Subscribe</span></button>
+
+    </form>
+  </main>
+  <div class="bg-brand_bold w-full bottom-0 fixed z-10 -md:flex justify-evenly py-4 px-5 md:hidden">
+    <a class="appearance-none text-white-light" href="#skills_div">
+      Skills
+    </a>
+    <a class="appearance-none text-white-light" href="my_works.html">
+      Works
+    </a>
+    <a class="appearance-none text-white-light" href="contact_us.html">
+      Contact us
+    </a>
+
+  </div>
+  <footer
+          class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer"
+  >
+    <div class="flex justify-between pt-9 mb-12 footer_content">
+      <div id="let_talk" class="flex flex-col gap-7">
+        <h3 class="text-4xl">Let's Talk!</h3>
+        <h4>Contact info</h4>
+        <p class="text-white-light">paternenught@gmail.com</p>
+        <p class="text-white-light">UR-CST Kigali</p>
+        <p class="text-white-light">+250 786 388 768</p>
+      </div>
+      <div id="what_i_do" class="flex flex-col gap-7">
+        <h4>What I Do?</h4>
+        <p class="text-white-light">Designing</p>
+        <p class="text-white-light">Coding</p>
+        <p class="text-white-light">Planning</p>
+        <p class="text-white-light">Leading</p>
+      </div>
+      <div id="quick_link" class="flex flex-col gap-7">
+        <h4>Quick Links</h4>
+        <a href="blog.html" class="text-white-light">Blog</a>
+        <a
+                href="login.html"
+                class="appearance-none text-white-light"
+        >Login</a
+        >
+        <a class="text-white-light">Github</a>
+        <a class="text-white-light">Resume</a>
+        <a class="text-white-light">Slack</a>
+      </div>
+    </div>
+    <p class="flex justify-center text-white-light py-20 happy_codding">
+      Happy Codding!
+    </p>
+  </footer>
+</div>
+
+<script src="./js/blog_list.js" type="module"></script>
+<script src="js/form/subscribe_form.js" type="module"></script>
+</body>
+</html>

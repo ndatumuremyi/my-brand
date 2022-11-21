@@ -1,0 +1,191 @@
+
+.carousel-wrapper {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+@media screen and (max-width: 720px){
+    .carousel-wrapper{
+        flex-direction: column;
+    }
+    .menu{
+        width: 100%;
+    }
+    .image_cl{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 721px){
+    .image_cl{
+        translate: -90px 0;
+        width: 50%;
+    }
+    .menu{
+        width: 50%;
+    }
+}
+.menu {
+    height: 380px;
+    overflow: hidden;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+}
+.current-option {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.current-option-text1 {
+    font-size: 1.6rem;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.current-option-text2 {
+    font-size: 0.8rem;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.previous-option {
+    height: 1.5rem;
+    border: none;
+    width: 1.5rem;
+    display: block;
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 256 256'%3E%3Cpolygon points='225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093' fill='%23333'%3E%3C/polygon%3E%3C/svg%3E");
+    background-size: cover;
+}
+.next-option {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    display: block;
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 256 256'%3E%3Cpolygon points='225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093' fill='%23333'%3E%3C/polygon%3E%3C/svg%3E");
+    background-size: cover;
+
+}
+.image_cl {
+    height: 240px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*z-index: 101;*/
+}
+.carousel-wrapper.anim-next {
+    pointer-events: none;
+}
+.carousel-wrapper.anim-next .current-option-text1 {
+    animation: next-text 0.65s 0.085s;
+}
+.carousel-wrapper.anim-next .current-option-text2 {
+    animation: next-text 0.65s 0.085s;
+}
+.carousel-wrapper.anim-next .previous-option {
+    animation: next-top-arrow 0.65s 0.085s;
+}
+.carousel-wrapper.anim-next .next-option {
+    animation: next-bottom-arrow 0.65s 0.085s;
+}
+.carousel-wrapper.anim-next .image_cl {
+    animation: next-image 0.65s 0.085s;
+}
+.carousel-wrapper.anim-previous {
+    pointer-events: none;
+}
+.carousel-wrapper.anim-previous .current-option-text1 {
+    animation: previous-text 0.65s 0.085s;
+}
+.carousel-wrapper.anim-previous .current-option-text2 {
+    animation: previous-text 0.65s 0.085s;
+}
+.carousel-wrapper.anim-previous .previous-option {
+    animation: previous-top-arrow 0.65s 0.085s;
+}
+.carousel-wrapper.anim-previous .next-option {
+    animation: previous-bottom-arrow 0.65s 0.085s;
+}
+.carousel-wrapper.anim-previous .image_cl {
+    animation: previous-image 0.65s 0.085s;
+}
+
+@keyframes previous-text {
+    50%, 55% {
+        transform: translate(0%, 390px);
+    }
+    to {
+        transform: translate(0%, 380px);
+    }
+}
+@keyframes previous-top-arrow {
+    50% {
+        transform: translate(310px, 53px);
+    }
+}
+@keyframes previous-bottom-arrow {
+    50% {
+        transform: translate(310px, -47px) rotate(180deg);
+    }
+}
+@keyframes previous-image {
+    0% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(140px, 0) scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+    }
+}
+@keyframes next-text {
+    50%, 55% {
+        transform: translate(0%, -390px);
+    }
+    to {
+        transform: translate(0%, -380px);
+    }
+}
+@keyframes next-top-arrow {
+    50% {
+        transform: translate(310px, 47px);
+    }
+}
+@keyframes next-bottom-arrow {
+    50% {
+        transform: translate(310px, -53px) rotate(180deg);
+    }
+}
+@keyframes next-image {
+    0% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(140px, 0) scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+    }
+}
