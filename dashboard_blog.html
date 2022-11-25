@@ -19,10 +19,10 @@
                 search
               </span>
         <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="email@gmail.com"
+                type="text"
+                name="search"
+                id="search"
+                placeholder="type to search"
                 class="appearance-none w-full min-w-11 form-input rounded-3xl border-2 border-brand py-5 px-4 bg-white placeholder-gray-400 text-white-light w-full block pl-14"
         />
       </label>
@@ -55,7 +55,7 @@
     <main class="flex-1 flex gap-4 flex-wrap items-start py-5 px-3">
       <div class="flex flex-col bg-brand_bold px-9 py-9 gap-7 rounded-lg">
         <p class="text-white">How to make it possible</p>
-        <button class="px-3 py-4 rounded-xl bg-brand_color">Edit</button>
+        <a class="px-3 no-underline appearance-none text-center text-white py-4 rounded-xl bg-brand_color" href="new_blog_form.html">Edit</a>
       </div>
       <div class="flex border-2 dashed border-brand  bg-white flex-col bg-brand_bold px-9 py-9 gap-7 rounded-lg min-w-16 min-h-11">
         <a href="new_blog_form.html" class="px-3 py-4 text-center rounded-xl my-auto text-brand-color bg-white_blue_light">Add</a>
@@ -70,7 +70,9 @@
       blog
     </a>
   </div>
-  <footer class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer relative">
+  <footer
+          class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer"
+  >
     <div class="flex justify-between pt-9 mb-12 footer_content">
       <div id="let_talk" class="flex flex-col gap-7">
         <h3 class="text-4xl">Let's Talk!</h3>
@@ -85,24 +87,23 @@
         <p class="text-white-light">Coding</p>
         <p class="text-white-light">Planning</p>
         <p class="text-white-light">Leading</p>
-
       </div>
       <div id="quick_link" class="flex flex-col gap-7">
         <h4>Quick Links</h4>
-        <button class="text-white-light">Blog</button>
-        <button class="text-white-light">Login</button>
-        <button class="text-white-light">Github</button>
-        <button class="text-white-light">Resume</button>
-        <button class="text-white-light">Slack</button>
-
-
-
+        <a href="blog.html" class="text-white-light">Blog</a>
+        <a
+                href="login.html"
+                class="appearance-none text-white-light"
+        >Login</a
+        >
+        <a class="text-white-light">Github</a>
+        <a class="text-white-light">Resume</a>
+        <a class="text-white-light">Slack</a>
       </div>
     </div>
     <p class="flex justify-center text-white-light py-20 happy_codding">
       Happy Codding!
     </p>
-
   </footer>
 </div>
 </body>
