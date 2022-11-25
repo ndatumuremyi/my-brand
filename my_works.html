@@ -13,10 +13,10 @@
   <header class="bg-brand_bold text-white flex flex-col header">
     <nav class="flex w-full justify-between items-center nav_div">
       <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
-      <nav class="flex gap-12 mr-12">
-        <a href="./index.html" class="nav_btn no-underline appearance-none text-white">Home</a>
-        <a href="./index.html#skills_div" class="nav_btn no-underline appearance-none text-white">Skills</a>
-        <button class="nav_btn">Contact us</button>
+      <nav class="gap-12 mr-12 -md:hidden md:flex">
+        <a class="nav_btn no-underline appearance-none text-white" href="index.html">Skills</a>
+        <a class="nav_btn no-underline appearance-none text-white" href="my_works.html">Work</a>
+        <a class="nav_btn no-underline appearance-none text-white" href="contact_us.html">Contact us</a>
       </nav>
     </nav>
     <div id="my_bland" class="flex justify-evenly items-center h-full">
@@ -40,18 +40,26 @@
     <div class="project-div overflow-y-auto bg-brand_color_light py-20 flex flex-col rounded-xl gap-7">
       <div class="my_work bg-white_blue_light flex gap-7 items-center items-stretch rounded-lg ">
 
-        <div id="carousel-wrapper">
-          <div id="menu">
-              <div id="current-option">
-                  <span id="current-option-text1" data-previous-text="" data-next-text=""></span>
-                  <span id="current-option-text2" data-previous-text="" data-next-text=""></span>
-              </div>
-              <button id="previous-option"></button>
-              <button id="next-option"></button>
-      
+        <div id="carousel-wrapper" class="carousel-wrapper relative">
+          <div id="menu" class="menu px-20 relative ">
+            <div id="current-option" class="current-option">
+      <span id="current-option-text1" class="current-option-text1" data-previous-text="" data-next-text="">
+        <!--<span class="current-option-text1-before"></span>
+        <span class="current-option-text1-after"></span>-->
+      </span>
+              <span id="current-option-text2" class="current-option-text2" data-previous-text="" data-next-text="">
+        <!--<span class="current-option-text2-before"></span>
+        <span class="current-option-text2-after"></span>-->
+      </span>
+            </div>
           </div>
-          <div id="image"></div>
-      </div>
+          <div id="image" class="image_cl relative"></div>
+          <div class="flex flex-col gap-5 mx-5 absolute right-3">
+            <button id="previous-option" class="previous-option p-4 rounded-xl">
+            </button>
+            <button id="next-option" class="next-option p-4 rounded-xl"></button>
+          </div>
+        </div>
       </div>
     </div>
   </main>

@@ -529,6 +529,9 @@ footer::after{
     .-md\:flex{
         display: flex;
     }
+    .-md\:flex-wrap{
+        flex-wrap: wrap;
+    }
 }
 @media screen and (min-width: 721px) {
     .md\:flex{
@@ -573,6 +576,9 @@ footer::after{
 
 
 
+.leading-8 {
+    line-height: 2rem; /* 16px */
+}
 .space-x-3 > {
     margin-left: 0.75rem; /* 12px */
 }
@@ -697,8 +703,14 @@ footer::after{
 .w-20{
     width: 20rem; /* 80px */
 }
+.max-w-20{
+    max-width: 20rem; /* 80px */
+}
 .w-42{
     width: 42rem;
+}
+.max-w-42{
+    max-width: 42rem;
 }
 .max-w-42{
     max-width: 42rem;

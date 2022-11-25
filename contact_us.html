@@ -10,12 +10,15 @@
 <body>
 <div class="flex flex-col">
     <header class="bg-brand_bold text-white flex flex-col header">
-        <nav class="flex w-full justify-between items-center nav_div">
-            <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
-            <nav class="flex gap-12 mr-12">
-                <button class="nav_btn">Skills</button>
-                <button class="nav_btn">Work</button>
-                <button class="nav_btn">Contact us</button>
+        <nav class="w-full justify-between items-center nav_div flex">
+            <a class="appearance-none no-underline " href="index.html">
+                <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+            </a>
+
+            <nav class="gap-12 mr-12 -md:hidden md:flex">
+                <a class="nav_btn no-underline appearance-none text-white" href="index.html">Skills</a>
+                <a class="nav_btn no-underline appearance-none text-white" href="my_works.html">Work</a>
+                <a class="nav_btn no-underline appearance-none text-white" href="contact_us.html">Contact us</a>
             </nav>
         </nav>
         <div id="my_bland" class="flex justify-evenly items-center h-full">
@@ -36,8 +39,8 @@
         </div>
     </header>
     <main class="flex flex-col gap-12 bg-brand_bold contact_main relative">
-        <form class="h-contact bg-brand_color_light mx-20 flex flex-col items-center justify-evenly py-20 rounded-xl contact_form">
-            <div class="flex gap-7 w-42">
+        <form class="h-contact bg-brand_color_light items-stretch mx-20 flex flex-col items-center justify-evenly py-20 rounded-xl contact_form">
+            <div class="flex gap-7 max-w-42 my-5 -md:flex-wrap">
                 <label class="w-full">
                     <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="text" placeholder="Names" />
                 </label>
@@ -45,7 +48,7 @@
                     <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="email" placeholder="Email" />
                 </label>
             </div>
-            <div class="flex gap-7 w-42">
+            <div class="flex gap-7 max-w-42 my-5 -md:flex-wrap">
                 <label class="w-full">
                     <input class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" type="tel" placeholder="Phone number" />
                 </label>
@@ -57,18 +60,42 @@
                     </select>
                 </label>
             </div>
-            <label class="w-42">
-                <textarea class="bg-white-13 border-none rounded-lg px-9 py-4 w-full" rows="10">
+            <label class="max-w-42">
+                <textarea class="bg-white-13 border-none rounded-lg px-9 py-4 w-full " rows="10">
 
                 </textarea>
             </label>
 
-            <button class="rounded-xl px-9 py-4 w-20 my-9 bg-brand_color text-white-light">
+            <button class="rounded-xl px-9 py-4 max-w-20 my-9 bg-brand_color text-white-light">
                 Contact
             </button>
 
         </form>
     </main>
+    <div class="bg-brand_bold w-full bottom-0 fixed z-10 -md:flex justify-evenly py-4 px-5 md:hidden">
+        <a class="appearance-none text-white-light" href="index.html">
+            Skills
+        </a>
+        <a class="appearance-none text-white-light" href="my_works.html">
+            Works
+        </a>
+        <a class="appearance-none text-white-light" href="contact_us.html">
+            Contact us
+        </a>
+
+    </div>
+    <div class="bg-brand_bold w-full bottom-0 fixed z-10 -md:flex justify-evenly py-4 px-5 md:hidden">
+        <a class="appearance-none text-white-light" href="#skills_div">
+            Skills
+        </a>
+        <a class="appearance-none text-white-light" href="my_works.html">
+            Works
+        </a>
+        <a class="appearance-none text-white-light" href="contact_us.html">
+            Contact us
+        </a>
+
+    </div>
     <footer class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer">
         <div class="flex justify-between pt-9 mb-12 footer_content">
             <div id="let_talk" class="flex flex-col gap-7">

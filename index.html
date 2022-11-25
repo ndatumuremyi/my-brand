@@ -17,7 +17,7 @@
       <header class="bg-brand_bold text-white flex flex-col header">
         <nav class="flex w-full justify-between items-center nav_div">
           <img class="h-12" alt="" src="assets/images/logo_with_name.svg" />
-          <nav class="flex gap-12 mr-12">
+          <nav class="gap-12 mr-12 -md:hidden md:flex">
             <a
               href="#skills_div"
               class="nav_btn no-underline appearance-none text-white"
@@ -117,7 +117,7 @@
             years,
           </h3>
           <p class="">(~_^)</p>
-          <p class="text-center mt-9 text-white-light mx-5">
+          <p class="text-center mt-9 text-white-light mx-5 leading-8">
             I've built products for companies and individuals around africa
             ranging from marketing <br />
             websites to complex solutions and enterprise apps with focus on
@@ -144,11 +144,6 @@
             <a
               href="my_works.html"
               class="no-underline text-center px-5 py-5 text-white rounded-xl bg-brand_color"
-              >See my work</a
-            >
-            <a
-              href="my_works.html"
-              class="text-black no-underline text-center button-third"
               >See my work</a
             >
           </div>
@@ -277,6 +272,18 @@
           </div>
         </div>
       </main>
+      <div class="bg-brand_bold w-full bottom-0 fixed z-10 -md:flex justify-evenly py-4 px-5 md:hidden">
+        <a class="appearance-none text-white-light" href="#skills_div">
+          Skills
+        </a>
+        <a class="appearance-none text-white-light" href="my_works.html">
+          Works
+        </a>
+        <a class="appearance-none text-white-light" href="contact_us.html">
+          Contact us
+        </a>
+
+      </div>
       <footer
         class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer"
       >
