@@ -10,7 +10,7 @@
 <body>
 <div class="flex flex-col">
     <header class="bg-brand_bold text-white flex flex-col header">
-        <nav class="w-full justify-between items-center nav_div flex">
+        <nav class="w-full justify-between items-center nav_div flex fixed top-0 z-60 bg-brand_bold">
             <a class="appearance-none no-underline " href="index.html">
                 <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
             </a>
@@ -96,7 +96,9 @@
         </a>
 
     </div>
-    <footer class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer">
+    <footer
+            class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer"
+    >
         <div class="flex justify-between pt-9 mb-12 footer_content">
             <div id="let_talk" class="flex flex-col gap-7">
                 <h3 class="text-4xl">Let's Talk!</h3>
@@ -111,24 +113,23 @@
                 <p class="text-white-light">Coding</p>
                 <p class="text-white-light">Planning</p>
                 <p class="text-white-light">Leading</p>
-
             </div>
             <div id="quick_link" class="flex flex-col gap-7">
                 <h4>Quick Links</h4>
-                <button class="text-white-light">Blog</button>
-                <button class="text-white-light">Login</button>
-                <button class="text-white-light">Github</button>
-                <button class="text-white-light">Resume</button>
-                <button class="text-white-light">Slack</button>
-
-
-
+                <a href="blog.html" class="text-white-light">Blog</a>
+                <a
+                        href="login.html"
+                        class="appearance-none text-white-light"
+                >Login</a
+                >
+                <a class="text-white-light">Github</a>
+                <a class="text-white-light">Resume</a>
+                <a class="text-white-light">Slack</a>
             </div>
         </div>
         <p class="flex justify-center text-white-light py-20 happy_codding">
             Happy Codding!
         </p>
-
     </footer>
 </div>
 </body>

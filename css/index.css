@@ -550,6 +550,9 @@ footer::after{
 .z-10{
     z-index: 10;
 }
+.z-60{
+    z-index: 60;
+}
 .fixed{
     position: fixed;
 }
