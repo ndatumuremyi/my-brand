@@ -9,10 +9,13 @@
   <title>My works</title>
 </head>
 <body>
-<div class="flex flex-col">
+<div class="flex flex-col overflow-x-hidden">
   <header class="bg-brand_bold text-white flex flex-col header">
     <nav class="flex w-full justify-between items-center nav_div fixed top-0 z-60 bg-brand_bold">
-      <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+      <a href="index.html" class="no-underline">
+        <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+      </a>
+
       <nav class="gap-12 mr-12 -md:hidden md:flex">
         <a class="nav_btn no-underline appearance-none text-white" href="index.html">Skills</a>
         <a class="nav_btn no-underline appearance-none text-white" href="my_works.html">Work</a>
@@ -24,7 +27,7 @@
         <h5 class="text-second text-5xl font-bold tracking-wider">
           /Works
         </h5>
-        <p class="text-white-light">
+        <p class="text-white-light px-5">
           Selected projects i’ve worked on!
         </p>
       </div>
@@ -63,6 +66,18 @@
       </div>
     </div>
   </main>
+  <div class="bg-brand_bold w-full bottom-0 fixed z-10 -md:flex justify-evenly py-4 px-5 md:hidden">
+    <a class="appearance-none text-white-light" href="#skills_div">
+      Skills
+    </a>
+    <a class="appearance-none text-white-light" href="my_works.html">
+      Works
+    </a>
+    <a class="appearance-none text-white-light" href="contact_us.html">
+      Contact us
+    </a>
+
+  </div>
   <footer
           class="flex flex-col relative bg-brand_bold text-white justify-between px-9 py-9 footer"
   >

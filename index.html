@@ -13,10 +13,10 @@
   </head>
 
   <body>
-    <div class="flex flex-col">
+    <div class="flex flex-col overflow-x-hidden">
       <header class="bg-brand_bold text-white flex flex-col header">
         <nav class="flex w-full bg-brand_bold justify-between items-center nav_div fixed top-0 z-60">
-          <img class="h-12" alt="" src="assets/images/logo_with_name.svg" />
+          <img class="h-12 max-w-full" alt="" src="assets/images/logo_with_name.svg" />
           <nav class="gap-12 mr-12 -md:hidden md:flex">
             <a
               href="#skills_div"
@@ -37,22 +37,22 @@
         </nav>
         <div
           id="my_bland"
-          class="flex justify-evenly items-center h-full my_bland"
+          class="flex justify-evenly items-center h-full my_bland -md:pt-20"
         >
           <div
-            class="header_content flex flex-col justify-between items-center"
+            class="header_content flex flex-col justify-between items-center mt-14"
           >
             <h5 class="text-second text-5xl font-bold tracking-wider">
               FullStack <br />
               Developer.
             </h5>
-            <p class="text-white-light">
+            <p class="text-white-light px-5">
               I like to craft solid and scalable frontend <br />
               products with great user experiences.
             </p>
             <button class="button_light">Resume</button>
           </div>
-          <div id="brand_image_div" class="brand_image_div">
+          <div id="brand_image_div" class="brand_image_div mt-12">
             <img
               class="brand_image"
               src="assets/images/brand_image.jpg"
