@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body class="bg-brand_bold flex justify-center items-center h-screen">
+<div class="flex flex-col w-380 h-582 gap-2 bg-white rounded-2xl items-center py-5 px-5">
+<img
+        width="48" height="48"
+        src="assets/images/logo.svg" alt=""/>
+    <span class="text-black bold">
+    paterneN
+    </span>
+    <span class="text-2xl mt-5">
+    Log In
+    </span>
+    <span class="text-black-light">
+                Enter your email and password below
+            </span>
+    <form
+    class="flex flex-col mt-5 gap-5 w-full text-black-light">
+    <label class="flex flex-col">
+    <span>
+                    Email
+                </span>
+    <input
+    type="email" class="p-4 rounded-xl w-full bg-brand_color_light" placeholder="adeli....@gmail.com"/>
+    </label>
+
+    <div class="flex flex-col">
+    <div class="flex justify-between">
+    <label for="password_input">Password</label> <span class="cursor-pointer">Forgot password?</span>
+    </div>
+    <input alt="" id="password_input" class="p-4 rounded-xl w-full bg-brand_color_light " type="password" placeholder="************"/>
+    </div>
+    <button class="py-4 bg-brand_color text-white w-full rounded-2xl">Login</button>
+    </form>
+    <span>
+                <span>Don’t have an account?</span>
+                <span class="cursor-pointer pl-1 text-brand-color">Contact us</span>
+    </span>
+    </div>
+</body>
+</html>
