@@ -1,4 +1,8 @@
 import {checkValidation, setAttributes, validate, patters} from "./validation.js";
+import endpoints from "../system/constants/endpoints.js";
+import Keys from "../system/constants/keys.js";
+import Secure from "../system/secureLs.js";
+import Constants from "../system/constants/index.js";
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById("login_form");
 
@@ -52,10 +56,29 @@ document.addEventListener('DOMContentLoaded', ()=> {
         // if the email field is valid, we let the form submit
         let formData = new FormData(event.target)
         let isFormValid = checkValidation(fields)
+        event.preventDefault();
         if(!isFormValid){
-            event.preventDefault();
+
         }else {
-            window.location.href = "dashboard.html";
+            let data = {}
+            for(let each of formData){
+                data[each[0]] = each[1]
+            }
+            axios
+                .post(`${Constants.DEFAULT_API}${endpoints.LOGIN}`, data)
+                .then(response => {
+                    console.log("response", response);
+                    const {
+                        data: { token, data },
+                    } = response;
+                    // setProfile({ ...user });
+                    Secure.setToken(token);
+                    Secure.set(Keys.USER_INFO, { token, data });
+                    window.location.href = "dashboard.html";
+                }).catch(error => {
+                console.error(error)
+                swal("Something went wrong!",`${error.message}`, "error");
+            })
         }
     });
 
