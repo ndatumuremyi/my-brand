@@ -1,11 +1,11 @@
-import {getAll, add, tables} from "./indexDB";
-import {setImage} from "./system/utilities.js";
+import {getAll} from "./backend";
+import endpoints from "./system/constants/endpoints.js";
 document.addEventListener("DOMContentLoaded", () => {
     let blog_single_view = document.getElementById('blog_single_view_client')
     let blogsContainer = document.getElementById('blogsContainer')
 
 
-    getAll(tables.blogs).then(results => {
+    getAll(endpoints.BLOGS).then(results => {
         results?.forEach(eachBlog => {
             let blogViewClone = blog_single_view.cloneNode(true)
             blogViewClone.id = "eachBlog," + eachBlog.id
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let blog_image = blogViewClone.querySelector('#blog_image')
             if(eachBlog.image){
                 try{
-                    setImage(eachBlog.image, blog_image)
+                    blog_image.src = eachBlog.image;
                 }catch (e) {
                     console.error(e)
                 }
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             viewSingleBlog.onclick = () =>{
-                window.location.href = "blog_view.html?id="+eachBlog.id;
+                window.location.href = "blog_view.html?id="+eachBlog._id;
             }
             blogsContainer.appendChild(blogViewClone)
         })

@@ -1,6 +1,8 @@
-import {getOne, tables, add} from "./indexDB";
+import {tables, add} from "./indexDB";
+import {getOne} from "./backend";
 import {setImage} from "./system/utilities.js";
 import {checkValidation, patters, setAttributes, validate} from "./form/validation.js";
+import endpoints from "./system/constants/endpoints.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,13 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(queryString)
     let id = urlParams.get("id")
     if(id){
-        id = parseInt(id)
-        getOne(tables.blogs,id).then(result => {
+        getOne(endpoints.BLOGS,id).then(result => {
             singleBlog = result
             title.textContent = result.title
             description.innerHTML = result.description
             if(result.image){
-                setImage(result.image, image)
+                image.src = result.image;
             }
             if(result.comments){
                 comment_counts.innerText = result.comments.length +""

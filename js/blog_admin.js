@@ -1,4 +1,5 @@
-import {getAll, tables} from "./indexDB";
+import {getAll} from './backend';
+import endpoints from "./system/constants/endpoints.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -6,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let blog_single_view = document.getElementById('blog_single_view')
 
 
-    getAll(tables.blogs).then((result) => {
+    getAll(endpoints.BLOGS).then((result) => {
         console.log(result)
         result?.forEach(eachBlog => {
             let blog_single_viewClone = blog_single_view.cloneNode(true)
