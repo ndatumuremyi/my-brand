@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
         form.addEventListener("submit", (event) => {
+            event.preventDefault()
             // if the email field is valid, we let the form submit
             let isFormValid = checkValidation(fields)
             if(!isFormValid){

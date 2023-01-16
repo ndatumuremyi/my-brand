@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         add(tables.blogs, singleBlog).then(() => {
             addCommentInView(comment)
+            comment_counts.innerText = singleBlog.comments.length +""
         })
     });
 
@@ -137,6 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
         newComment.querySelector('#comment').innerText = comment.comments
 
         comment_section.appendChild(newComment)
+
+        clearCommentForm();
+    }
+    function clearCommentForm(){
+        form.reset()
     }
 
 
