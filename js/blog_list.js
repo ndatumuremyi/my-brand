@@ -1,4 +1,4 @@
-import {getAll} from "./backend";
+import {getAll} from "./backend/index.js";
 import endpoints from "./system/constants/endpoints.js";
 document.addEventListener("DOMContentLoaded", () => {
     let blog_single_view = document.getElementById('blog_single_view_client')

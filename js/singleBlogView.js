@@ -3,7 +3,6 @@ import {getUniqueId} from "./system/utilities.js";
 import {checkValidation, patters, setAttributes, validate} from "./form/validation.js";
 import endpoints from "./system/constants/endpoints.js";
 import Keys from "./system/constants/keys.js";
-import keys from "./system/constants/keys.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     let title = document.getElementById("title")

@@ -1,6 +1,6 @@
 import {checkValidation, setAttributes, validate} from "./validation.js";
 import {add as addBlog, getOneBlog, deleteItem, update} from "../backend";
-import endpoints from "../system/constants/endpoints.js";
+import endpoints from "./../system/constants/endpoints.js";
 import {getHeaders} from "../system/utilities.js";
 import Secure from "../system/secureLs.js";
 

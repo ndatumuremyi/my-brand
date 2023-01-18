@@ -1,5 +1,5 @@
-import Constants from "../system/constants/index.js";
-import endpoints from "../system/constants/endpoints.js";
+import Constants from "./../system/constants/index.js";
+import endpoints from "./../system/constants/endpoints.js";
 import {getHeaders} from "../system/utilities.js";
 
 export async function getAll(endpoint, headers) {

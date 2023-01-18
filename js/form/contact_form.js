@@ -1,6 +1,6 @@
 import {checkValidation, setAttributes, validate, patters} from "./validation.js";
 import {add} from "../backend";
-import endpoints from "../system/constants/endpoints.js";
+import endpoints from "./../system/constants/endpoints.js";
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById("contact_form");
 

@@ -1,8 +1,8 @@
 import {checkValidation, setAttributes, validate, patters} from "./validation.js";
-import endpoints from "../system/constants/endpoints.js";
+import endpoints from "./../system/constants/endpoints.js";
 import Keys from "../system/constants/keys.js";
 import Secure from "../system/secureLs.js";
-import Constants from "../system/constants/index.js";
+import Constants from "./../system/constants/index.js";
 
 if(Secure.getToken()){
     window.location.href = "dashboard.html"
