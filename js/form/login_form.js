@@ -3,6 +3,10 @@ import endpoints from "../system/constants/endpoints.js";
 import Keys from "../system/constants/keys.js";
 import Secure from "../system/secureLs.js";
 import Constants from "../system/constants/index.js";
+
+if(Secure.getToken()){
+    window.location.href = "dashboard.html"
+}
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById("login_form");
 

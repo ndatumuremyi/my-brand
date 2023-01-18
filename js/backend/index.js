@@ -1,4 +1,6 @@
 import Constants from "../system/constants/index.js";
+import endpoints from "../system/constants/endpoints.js";
+import {getHeaders} from "../system/utilities.js";
 
 export async function getAll(endpoint, headers) {
     try {
@@ -37,5 +39,9 @@ export async function update(endpoints, dataToAdd, headers){
 }
 export async function deleteItem(endpoints, headers){
     const {data:{data}} = await axios.delete(`${Constants.DEFAULT_API}${endpoints}`, headers);
+    return data
+}
+export async function logout(){
+    const {data} = await axios.post(`${Constants.DEFAULT_API}${endpoints.LOGOUT}`,{}, getHeaders());
     return data
 }

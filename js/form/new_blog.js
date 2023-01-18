@@ -1,5 +1,4 @@
 import {checkValidation, setAttributes, validate} from "./validation.js";
-import {add, tables, getOne, deleteOne} from "../indexDB";
 import {add as addBlog, getOneBlog, deleteItem, update} from "../backend";
 import endpoints from "../system/constants/endpoints.js";
 import {getHeaders} from "../system/utilities.js";

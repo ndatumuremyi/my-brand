@@ -1,7 +1,8 @@
-import {getAll} from "./backend";
+import {getAll, logout as logoutTheSystem} from "./backend";
 import endpoints from "./system/constants/endpoints.js";
 import {getHeaders} from "./system/utilities.js";
 import Secure from "./system/secureLs.js";
+import secureLs from "./system/secureLs.js";
 
 if(!Secure.getToken()){
     window.location.href = "login.html"
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let newMessageCount = document.getElementById('newMessageCount')
     let messagesContainer = document.getElementById('messageContainer')
     let messageClone = document.getElementById('messageClone')
-
+    let logout = document.getElementById('logout')
 
     function addMessage(message){
 
@@ -47,6 +48,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    logout.onclick = () =>{
+        logoutTheSystem().then(response => {
+            console.log(response)
+            secureLs.removeToken();
+            swal("Logout successful!",`you can come back anyTime`, "success").then(()=>{
+                window.location.href = "index.html"
+            })
+        }).catch(error => {
+            secureLs.removeToken();
+            window.location.href = "index.html"
+            console.error(error)
+        })
+    }
 
 
 
