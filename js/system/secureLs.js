@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 // import SecureLS from 'secure-ls';
 // import Keys from './keys';
-import Keys from "./constants/keys.js";
+import keys from "./constants/keys.js";
 let ls = {
   set: (key, value) => {
     localStorage.setItem(key, value)
@@ -34,21 +34,21 @@ const remove = (key) => {
 const removeToken = () => {
   // if (Keys.ISSERVER) return;
   // const ls = new SecureLS({ encodingType: 'aes' });
-  return ls.remove(`${Keys.APP_ACCESS_TOKEN}`);
+  return ls.remove(`${keys.APP_ACCESS_TOKEN}`);
 };
 
 const setToken = (value) => {
   // if (Keys.ISSERVER) return;
   // const ls = new SecureLS({ encodingType: 'aes' });
   //
-  ls.set(`${Keys.APP_ACCESS_TOKEN}`, value);
+  ls.set(`${keys.APP_ACCESS_TOKEN}`, value);
 };
 
 const getToken = () => {
   // if (Keys.ISSERVER) return;
   // const ls = new SecureLS({ encodingType: 'aes' });
   try {
-    return ls.get(`${Keys.APP_ACCESS_TOKEN}`) || null;
+    return ls.get(`${keys.APP_ACCESS_TOKEN}`) || null;
   } catch (error) {
     return null;
   }

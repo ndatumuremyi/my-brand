@@ -1,4 +1,4 @@
-import {getAll, logout as logoutTheSystem} from "./backend";
+import {getAll, logout as logoutTheSystem} from "./backend/index.js";
 import endpoints from "./system/constants/endpoints.js";
 import {getHeaders} from "./system/utilities.js";
 import Secure from "./system/secureLs.js";

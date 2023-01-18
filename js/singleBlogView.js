@@ -1,8 +1,8 @@
-import {getOneBlog, add} from "./backend";
+import {getOneBlog, add} from "./backend/index.js";
 import {getUniqueId} from "./system/utilities.js";
 import {checkValidation, patters, setAttributes, validate} from "./form/validation.js";
 import endpoints from "./system/constants/endpoints.js";
-import Keys from "./system/constants/keys.js";
+import keys from "./system/constants/keys.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     let title = document.getElementById("title")
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const likes_count = document.getElementById('likes_count')
     let didILike = false;
 
-    if(!localStorage.getItem(Keys.BROWSER_ID)){
+    if(!localStorage.getItem(keys.BROWSER_ID)){
         localStorage.setItem(keys.BROWSER_ID, getUniqueId());
     }
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         try {
-            add(`${endpoints.BLOGS}/${id}/didILike`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+            add(`${endpoints.BLOGS}/${id}/didILike`, {browserId:localStorage.getItem(keys.BROWSER_ID)}).then(result => {
                 console.log(result)
                 didILike = result;
             }).catch(error => {
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     setLikesToView(singleBlog.likes.count)
         // })
         if(didILike){
-            add(`${endpoints.BLOGS}/${id}/unlike`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+            add(`${endpoints.BLOGS}/${id}/unlike`, {browserId:localStorage.getItem(keys.BROWSER_ID)}).then(result => {
                 setLikesToView(result.count)
                 didILike = false;
             }).catch(error => {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 swal("Something went wrong!",`${error.message}`, "error");
             })
         }else {
-            add(`${endpoints.BLOGS}/${id}/like`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+            add(`${endpoints.BLOGS}/${id}/like`, {browserId:localStorage.getItem(keys.BROWSER_ID)}).then(result => {
                 setLikesToView(result.count)
                 didILike = true;
             }).catch(error => {

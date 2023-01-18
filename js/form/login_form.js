@@ -1,6 +1,6 @@
 import {checkValidation, setAttributes, validate, patters} from "./validation.js";
 import endpoints from "./../system/constants/endpoints.js";
-import Keys from "../system/constants/keys.js";
+import keys from "../system/constants/keys.js";
 import Secure from "../system/secureLs.js";
 import Constants from "./../system/constants/index.js";
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                     } = response;
                     // setProfile({ ...user });
                     Secure.setToken(token);
-                    Secure.set(Keys.USER_INFO, { token, data });
+                    Secure.set(keys.USER_INFO, { token, data });
                     window.location.href = "dashboard.html";
                 }).catch(error => {
                 console.error(error)
