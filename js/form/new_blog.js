@@ -1,6 +1,13 @@
 import {checkValidation, setAttributes, validate} from "./validation.js";
 import {add, tables, getOne, deleteOne} from "../indexDB";
+import {add as addBlog, getOneBlog, deleteItem, update} from "../backend";
+import endpoints from "../system/constants/endpoints.js";
+import {getHeaders} from "../system/utilities.js";
+import Secure from "../system/secureLs.js";
 
+if(!Secure.getToken()){
+    window.location.href = "login.html"
+}
 document.addEventListener('DOMContentLoaded', ()=> {
     let quill = new Quill('#blog_editor', {
         theme: 'snow'
@@ -9,6 +16,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const title_blog = document.getElementById("title_blog")
     const image_field = document.getElementById("image_field")
     const image_name = document.getElementById("image_name")
+    const image_name_backend = document.getElementById("image_name_backend")
+
     const title_field = document.getElementById('title_field')
     const category_field = document.getElementById('category_field')
     const url_field = document.getElementById('url_field')
@@ -29,8 +38,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     if(id){
         title_blog.innerText = "Edit"
-        getOne(tables.blogs,parseInt(id)).then(result => {
+        // getOne(tables.blogs,parseInt(id)).then(result => {
+        //     populateFields(result)
+        // })
+        getOneBlog(endpoints.BLOGS, id).then(result =>{
             populateFields(result)
+            // console.log(result)
         })
     }else {
         title_blog.innerText = "Create a new "
@@ -100,27 +113,43 @@ document.addEventListener('DOMContentLoaded', ()=> {
             event.preventDefault()
             // if the email field is valid, we let the form submit
             let isFormValid = checkValidation(fields)
-            if(!isFormValid){
+            if(!isFormValid && !id){
                 console.log("isFormValid", isFormValid)
                 return false
             }
             else {
-                let blog = {}
                 let formData = new FormData(form)
-                for (let each of formData){
-
-                    blog[each[0]] = each[1]
+                let copyForm = new FormData(form)
+                for(let each of copyForm){
+                    if(each[0] === "image"){
+                        if(each[1].name === ''){
+                            formData.delete(each[0])
+                        }
+                    }else {
+                        if(each[1]===''){
+                            formData.delete(each[0])
+                        }
+                    }
                 }
                 try{
-                    blog["description"] = quill.root.innerHTML;
-                    blog['createdAt'] = new Date()
+
+                    formData.set("description", quill.root.innerHTML);
                     if(id){
-                       blog['id'] = parseInt(id)
+                        update(`${endpoints.BLOGS}/${id}`, formData, getHeaders()).then(result =>{
+                            console.log(result)
+                            swal("Blog Updated!",`you will be directed to dashboard`, "success").then(() =>{
+                                window.location.href = "dashboard_blog.html"
+                            })
+                        })
+                    }else {
+                        addBlog(endpoints.BLOGS, formData, getHeaders()).then(result =>{
+                            console.log(result)
+                            swal("Blog saved!",`go to dashboard to view them`, "success").then(() =>{
+                                window.location.href = "dashboard_blog.html"
+                            })
+                        })
                     }
-                    add(tables.blogs, blog).then(result => {
-                        console.log(result)
-                        window.location.href = "dashboard_blog.html"
-                    }, error => console.error(error)).catch(error => console.error(error))
+
                 }catch (e) {
                     console.log(e)
                 }
@@ -138,13 +167,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         title_field.value = blogData.title
         quill.root.innerHTML = blogData.description
         category_field.value = blogData.category || 'tech'
-        url_field.value = blogData.url || null
-        const dataTransfer = new DataTransfer()
-        dataTransfer.items.add(blogData.image)
-        image_field.files = dataTransfer.files
-
-        let split = image_field.value.split("\\")
-        image_name.innerText = split[split.length - 1]
+        image_name.innerText = blogData.image
 
     }
 
@@ -154,9 +177,17 @@ document.addEventListener('DOMContentLoaded', ()=> {
         if(!id){
             return
         }
-        deleteOne(tables.blogs, parseInt(id)).then(() => {
-            window.location.href = "dashboard_blog.html"
-        })
+        try {
+            deleteItem(`${endpoints.BLOGS}/${id}`, getHeaders()).then(result => {
+                console.log(result)
+                swal("Delete successful!",`deleting blog complete`, "success").then(() => {
+                    window.location.href = "dashboard_blog.html"
+                })
+            })
+        }catch (error){
+            swal("Something went wrong!",`${error.message}`, "error");
+        }
+
     }
 
 })

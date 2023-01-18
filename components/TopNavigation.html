@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="topNavigation">
+    <header class="bg-brand_bold text-white flex flex-col">
+        <nav class="flex gap-7 w-full justify-between items-center flex-wrap py-4 px-9">
+            <a href="index.html" class="appearance-none">
+                <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
+            </a>
+            <label class="relative text-white-light block flex-1">
+              <span class="material-symbols-outlined pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-3">
+                search
+              </span>
+                <input
+                        type="text"
+                        name="search"
+                        id="search"
+                        placeholder="type to search"
+                        class="appearance-none w-full min-w-11 form-input rounded-3xl border-2 border-brand py-5 px-4 bg-white placeholder-gray-400 text-white-light w-full block pl-14"
+                />
+            </label>
+            <div class="flex gap-2 mx-auto">
+                <span class="relative rounded-xl bg-brand_color px-3 py-3 cursor-pointer" onclick="toggleModal()">
+        <span class="notification-count">23</span>
+        <span class="material-symbols-outlined">message</span>
+      </span>
+                <div class="flex items-center justify-center relative">
+                <span id="notification-icon">
+                    <img alt="" src="assets/images/avatar.png"/>
+                </span>
+                    <div class="notification_content bg-white_blue_light text-black absolute top-0 rounded-2xl border-2 border-brand solid shadow-2xl collapse"
+                         id="notification_content">
+                        <a href="index.html" class="no-underline rounded-2xl bg-brand-third text-white px-5 py-2">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+</div>
+</body>
+</html>

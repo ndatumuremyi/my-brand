@@ -29,7 +29,7 @@
       </label>
       <div class="flex gap-2 mx-auto">
                 <span class="relative rounded-xl bg-brand_color px-3 py-3 cursor-pointer" onclick="toggleModal()">
-        <span class="notification-count">23</span>
+        <span id="newMessageCount" class="notification-count">0</span>
         <span class="material-symbols-outlined">message</span>
       </span>
         <div class="flex items-center justify-center relative">
@@ -55,7 +55,7 @@
       </a>
 
     </nav>
-    <main  class="flex-1 flex gap-4 flex-wrap items-start py-5 px-3">
+    <main  class="flex-1 flex gap-4 flex-wrap items-start py-5 px-3 overflow-y-scroll">
       <div id="blog_container" class="flex gap-4 flex-wrap items-center">
         <div id="blog_single_view" class="flex flex-col bg-brand_bold px-9 py-9 gap-7 rounded-lg w-20">
           <p id="title_view" class="text-white">How to make it possible</p>
@@ -116,41 +116,21 @@
 </div>
 <div class="modal bg-brand_bold relative w-full h-full">
   <span class="material-symbols-outlined p-4 bg-white text-brand-color rounded-full absolute right-3 top-0 cursor-pointer" onclick="toggleModal()"> close</span>
-  <div class="flex flex-wrap gap-2 justify-evenly items-center bg-white_blue_light w-full h-full">
-    <div class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
-      <div id="message_top" class="flex gap-2">
-        <span class="material-symbols-outlined">person</span>
-        <div class="flex flex-col gap-2">
-          <h5>Eric niyoyayo</h5>
-          <p>on 23.32.2022</p>
-        </div>
-        <button class="text-white rounded-xl border-brand border-2 solid p-4"> Ask Question</button>
-      </div>
-      <p class="max-w-xs">
-        I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really
-      </p>
-      <div id="message_footer" class="flex flex-col self-end">
-        <p>eric@gmail.com</p>
-        <p>0786344343</p>
+  <div id="messageContainer" class="flex flex-wrap gap-2 justify-evenly items-center bg-white_blue_light w-full h-full overflow-y-scroll">
 
-      </div>
-    </div>
-    <div class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
+    <div id="messageClone" class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
       <div  class="flex gap-2">
         <span class="material-symbols-outlined">person</span>
         <div class="flex flex-col gap-2">
-          <h5>Eric niyoyayo</h5>
-          <p>on 23.32.2022</p>
+          <h5 id="names">Eric niyoyayo</h5>
+          <p id="createdAt">-</p>
         </div>
-        <button class="text-white rounded-xl border-brand border-2 solid p-4"> Ask Question</button>
       </div>
-      <p class="max-w-xs">
+      <p id="message" class="max-w-xs">
         I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really
       </p>
       <div  class="flex flex-col self-end">
-        <p>eric@gmail.com</p>
-        <p>0786344343</p>
-
+        <p id="email">eric@gmail.com</p>
       </div>
     </div>
 

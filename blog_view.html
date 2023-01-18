@@ -10,15 +10,24 @@
 <body>
 <div class="flex flex-col overflow-x-hidden">
     <header class="bg-brand_bold text-white flex flex-col">
-        <nav class="flex w-full justify-between items-center nav_div fixed top-0 z-60 bg-brand_bold">
-            <a href="index.html" class="no-underline">
-                <img class="h-12" alt="" src="assets/images/logo_with_name.svg">
-            </a>
-
-            <nav class="md:flex gap-12 mr-12 -md:hidden">
-                <button class="nav_btn">Skills</button>
-                <button class="nav_btn">Work</button>
-                <button class="nav_btn">Contact us</button>
+        <nav class="flex w-full bg-brand_bold justify-between items-center nav_div fixed top-0 z-60">
+            <img class="h-12 max-w-full" alt="" src="assets/images/logo_with_name.svg" />
+            <nav class="gap-12 mr-12 -md:hidden md:flex">
+                <a
+                        href="#skills_div"
+                        class="nav_btn no-underline appearance-none text-white"
+                >Skills</a
+                >
+                <a
+                        href="my_works.html"
+                        class="nav_btn no-underline appearance-none text-white"
+                >Work</a
+                >
+                <a
+                        href="contact_us.html"
+                        class="nav_btn no-underline appearance-none text-white"
+                >Contact us</a
+                >
             </nav>
         </nav>
     </header>
@@ -67,7 +76,7 @@
                 </label>
 
                 <label class="self-stretch">
-                <textarea name="comments" id="description_field" class="bg-white border-none rounded-lg px-9 py-4 w-full" rows="10"></textarea>
+                <textarea name="comment" id="description_field" class="bg-white border-none rounded-lg px-9 py-4 w-full" rows="10"></textarea>
                     <span id="description_error" class="text-red-light left-3 bottom-0 error"></span>
                 </label>
 

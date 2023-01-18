@@ -21,8 +21,8 @@
                 <a class="nav_btn no-underline appearance-none text-white" href="contact_us.html">Contact us</a>
             </nav>
         </nav>
-        <div id="my_bland" class="flex justify-evenly items-center flex-wrap">
-            <div class="flex flex-col gap-2 justify-center items-center flex-1">
+        <div id="my_bland" class="flex justify-between flex-wrap">
+            <div class="flex flex-col max-w-3xl gap-2 justify-center items-center flex-1">
                 <div class="header_content flex flex-col justify-evenly ">
                     <h5 class="text-second text-5xl font-bold tracking-wider">
                         Contact Me
@@ -38,7 +38,7 @@
                     <img class="zig_zad_center" src="assets/images/zigizaga_white.svg" alt=""/>
                 </div>
             </div>
-            <main class="flex flex-col gap-12 bg-brand_bold contact_main relative">
+            <main class="flex flex-col flex-1 max-w-xl gap-12 contact_main relative">
                 <form id="contact_form" class="h-contact bg-brand_color_light items-stretch mx-20 flex flex-col items-center justify-evenly py-20 rounded-xl contact_form" novalidate>
                     <div class="flex gap-7 max-w-42 my-5 -md:flex-wrap">
                         <label class="w-full relative">
@@ -51,17 +51,9 @@
                             <input name="email" id="email_field" class="bg-white-13 text-white valid:border-none invalid:border-red rounded-lg px-9 py-4 w-full" type="email" placeholder="Email" />
                             <span id="email_error" class="text-red-light auto-hide-error bg-brand_bold p-4 rounded-xl translate-y-12 left-3 absolute top-0 error z-10"></span>
                         </label>
-                        <label class="w-full relative">
-                            <select id="reason_field" name="reason" class="bg-white-13 text-white border-none rounded-lg px-9 py-4 text-white-light w-full">
-                                <option value="Ask Question" class="bg-brand_color text-white-light">Ask Question</option>
-                                <option value="Hire Me" class="bg-brand_color text-white-light">Hire Me</option>
-                                <option value="Say hello" class="bg-brand_color text-white-light">Say hello</option>
-                            </select>
-                            <span id="reason_error" class="text-red-light bg-brand_bold p-4 rounded-xl translate-y-12 left-3 absolute top-0 error z-10"></span>
-                        </label>
                     </div>
                     <label class="max-w-42 relative">
-                <textarea id="description_field" name="description" class="bg-white-13 text-white valid:border-none invalid:border-red rounded-lg px-9 py-4 w-full " rows="10"></textarea>
+                <textarea id="description_field" name="message" class="bg-white-13 text-white valid:border-none invalid:border-red rounded-lg px-9 py-4 w-full " rows="10"></textarea>
                         <span id="description_error" class="text-red-light auto-hide-error bg-brand_bold p-4 rounded-xl translate-y-32 left-3 absolute top-0 error z-10"></span>
                     </label>
 
@@ -135,6 +127,9 @@
         </p>
     </footer>
 
+    <script src="https://www.jsdelivr.com/package/npm/secure-ls"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/form/contact_form.js" type="module"></script>
 </div>
 </body>

@@ -1,9 +1,9 @@
-import {tables, add} from "./indexDB";
-import {getOne} from "./backend";
-import {setImage} from "./system/utilities.js";
+import {getOneBlog, add} from "./backend";
+import {getUniqueId} from "./system/utilities.js";
 import {checkValidation, patters, setAttributes, validate} from "./form/validation.js";
 import endpoints from "./system/constants/endpoints.js";
-
+import Keys from "./system/constants/keys.js";
+import keys from "./system/constants/keys.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     let title = document.getElementById("title")
@@ -15,8 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const comment_counts = document.getElementById('comment_counts')
     const clickToLike = document.getElementById('clickToLike')
     const likes_count = document.getElementById('likes_count')
+    let didILike = false;
 
-
+    if(!localStorage.getItem(Keys.BROWSER_ID)){
+        localStorage.setItem(keys.BROWSER_ID, getUniqueId());
+    }
 
 
     let fields = [
@@ -80,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(queryString)
     let id = urlParams.get("id")
     if(id){
-        getOne(endpoints.BLOGS,id).then(result => {
+        getOneBlog(endpoints.BLOGS,id).then(result => {
             singleBlog = result
             title.textContent = result.title
             description.innerHTML = result.description
@@ -95,6 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 setLikesToView(result.likes.count)
             }
         })
+        try {
+            add(`${endpoints.BLOGS}/${id}/didILike`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+                console.log(result)
+                didILike = result;
+            }).catch(error => {
+                console.error(error)
+            })
+        }catch (error){
+            console.error(error)
+        }
     }
 
 
@@ -126,17 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
         else {
             singleBlog.comments = [comment]
         }
-        add(tables.blogs, singleBlog).then(() => {
-            addCommentInView(comment)
+        add(`${endpoints.BLOGS}/${id}/comments`, comment).then(result => {
+            addCommentInView(result)
             comment_counts.innerText = singleBlog.comments.length +""
         })
     });
 
     function addCommentInView(comment){
         let newComment = comment_container.cloneNode(true)
-        newComment.id = comment.names + comment.comments
+        newComment.id = comment.names + comment.comment
         newComment.querySelector('#names').innerText = comment.names
-        newComment.querySelector('#comment').innerText = comment.comments
+        newComment.querySelector('#comment').innerText = comment.comment
 
         comment_section.appendChild(newComment)
 
@@ -151,20 +164,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!singleBlog){
             return
         }
-        if(singleBlog.likes){
-            singleBlog.likes.count = singleBlog.likes.count + 1
-
+        // add(tables.blogs, singleBlog).then(result => {
+        //     console.log("result ",result)
+        //     setLikesToView(singleBlog.likes.count)
+        // })
+        if(didILike){
+            add(`${endpoints.BLOGS}/${id}/unlike`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+                setLikesToView(result.count)
+                didILike = false;
+            }).catch(error => {
+                console.error(error)
+                swal("Something went wrong!",`${error.message}`, "error");
+            })
         }else {
-            singleBlog.likes = {
-                count : 1,
-                lovers:[]
-            }
+            add(`${endpoints.BLOGS}/${id}/like`, {browserId:localStorage.getItem(Keys.BROWSER_ID)}).then(result => {
+                setLikesToView(result.count)
+                didILike = true;
+            }).catch(error => {
+                console.error(error)
+                swal("Something went wrong!",`${error.message}`, "error");
+            })
         }
 
-        add(tables.blogs, singleBlog).then(result => {
-            console.log("result ",result)
-            setLikesToView(singleBlog.likes.count)
-        })
     }
 
     function setLikesToView(likes){

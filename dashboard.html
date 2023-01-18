@@ -29,7 +29,7 @@
       </label>
       <div class="flex gap-2 mx-auto">
                 <span class="relative rounded-xl bg-brand_color px-3 py-3 cursor-pointer" onclick="toggleModal()">
-        <span class="notification-count">23</span>
+        <span id="newMessageCount" class="notification-count">0</span>
         <span class="material-symbols-outlined">message</span>
       </span>
         <div class="flex items-center justify-center relative">
@@ -58,11 +58,11 @@
     <main class="flex-1 flex gap-4 flex-wrap items-start py-5 px-3 justify-evenly">
       <div class="flex flex-col bg-brand_bold px-9 py-9 gap-7 rounded-lg min-w-16 min-h-11 text-center">
         <p class="text-white">Blogs</p>
-        <p class="text-3xl text-white font-bold"> 343</p>
+        <p id="blogCount" class="text-3xl text-white font-bold"> 0</p>
       </div>
       <div class="flex flex-col bg-brand_bold px-9 py-9 gap-7 rounded-lg min-w-16 min-h-11 text-center">
         <p class="text-white">New messages</p>
-        <p class="text-3xl text-white font-bold"> 343</p>
+        <p id="messageCount" class="text-3xl text-white font-bold"> 0</p>
       </div>
 
     </main>
@@ -115,46 +115,29 @@
 </div>
 <div class="modal bg-brand_bold relative w-full h-full">
   <span class="material-symbols-outlined p-4 bg-white text-brand-color rounded-full absolute right-3 top-0 cursor-pointer" onclick="toggleModal()"> close</span>
-  <div class="flex flex-wrap gap-2 justify-evenly items-center bg-white_blue_light w-full h-full">
-    <div class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
-      <div id="message_top" class="flex gap-2">
-        <span class="material-symbols-outlined">person</span>
-        <div class="flex flex-col gap-2">
-          <h5>Eric niyoyayo</h5>
-          <p>on 23.32.2022</p>
-        </div>
-        <button class="text-white rounded-xl border-brand border-2 solid p-4"> Ask Question</button>
-      </div>
-      <p class="max-w-xs">
-        I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really
-      </p>
-      <div id="message_footer" class="flex flex-col self-end">
-        <p>eric@gmail.com</p>
-        <p>0786344343</p>
+  <div id="messageContainer" class="flex flex-wrap gap-2 justify-evenly items-center bg-white_blue_light w-full h-full overflow-y-scroll">
 
-      </div>
-    </div>
-    <div class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
+    <div id="messageClone" class="flex flex-col gap-5 px-9 py-4 bg-brand_bold text-white rounded-xl">
       <div  class="flex gap-2">
         <span class="material-symbols-outlined">person</span>
         <div class="flex flex-col gap-2">
-          <h5>Eric niyoyayo</h5>
-          <p>on 23.32.2022</p>
+          <h5 id="names">Eric niyoyayo</h5>
+          <p id="createdAt">-</p>
         </div>
-        <button class="text-white rounded-xl border-brand border-2 solid p-4"> Ask Question</button>
       </div>
-      <p class="max-w-xs">
+      <p id="message" class="max-w-xs">
         I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really I have a questing about the prgram and I really
       </p>
       <div  class="flex flex-col self-end">
-        <p>eric@gmail.com</p>
-        <p>0786344343</p>
-
+        <p id="email">eric@gmail.com</p>
       </div>
     </div>
 
   </div>
 </div>
+<script src="https://www.jsdelivr.com/package/npm/secure-ls"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
   let notification_icon = document.getElementById("notification-icon")
   let notification_content = document.getElementById("notification_content")
@@ -166,5 +149,6 @@
 <script type="text/javascript">
   const toggleModal = () => document.body.classList.toggle("open")
 </script>
+<script type="module" src="js/dashboard.js"></script>
 </body>
 </html>

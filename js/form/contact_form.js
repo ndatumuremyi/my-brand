@@ -1,4 +1,6 @@
 import {checkValidation, setAttributes, validate, patters} from "./validation.js";
+import {add} from "../backend";
+import endpoints from "../system/constants/endpoints.js";
 document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.getElementById("contact_form");
 
@@ -38,12 +40,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             ]
         },
         {
-            name:'reason',
-            field:"reason_field",
-            error:"reason_error",
-        },
-        {
-            name:'description',
+            name:'message',
             field:"description_field",
             error:"description_error",
             conditions:[
@@ -71,11 +68,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     form.addEventListener("submit", (event) => {
         // if the email field is valid, we let the form submit
-        let formData = new FormData(event.target)
+        event.preventDefault();
+
         let isFormValid = checkValidation(fields)
         if(!isFormValid){
-            event.preventDefault();
+            return;
         }
+        let formData = new FormData(event.target)
+        let message = {}
+        for(let each of formData){
+            message[each[0]] = each[1]
+        }
+        add(`${endpoints.MESSAGES}`, message).then(result => {
+            console.log(result)
+            swal("Message received!",`we will reach to you soon`, "success");
+
+        }).catch(error => {
+            swal("Something went wrong!",`${error.message}`, "error");
+        })
     });
 
 

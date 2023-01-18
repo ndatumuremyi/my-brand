@@ -1,7 +1,11 @@
 import Constants from "../system/constants/index.js";
 
-export async function getAll(endpoint) {
+export async function getAll(endpoint, headers) {
     try {
+        if(headers){
+            const {data:{data}} = await axios.get(`${Constants.DEFAULT_API}${endpoint}`, headers)
+            return data;
+        }
         const {data:{data}} = await axios.get(`${Constants.DEFAULT_API}${endpoint}`)
         return data;
     }catch (error){
@@ -10,12 +14,28 @@ export async function getAll(endpoint) {
     }
 
 }
-export async function getOne(endpoint, id){
+export async function getOneBlog(endpoint, id){
     try {
-        const {data:{data}} = await axios.get(`${Constants.DEFAULT_API}${endpoint}/${id}`)
-        return data;
+        const {data:{data, comments, likes}} = await axios.get(`${Constants.DEFAULT_API}${endpoint}/${id}`)
+        return {...data, comments, likes};
     }catch (error){
         console.error(error)
         return {}
     }
+}
+export async function add(endpoints, dataToAdd, headers){
+    if(headers){
+        const {data:{data}} = await axios.post(`${Constants.DEFAULT_API}${endpoints}`, dataToAdd, headers);
+        return data
+    }
+    const {data:{data}} = await axios.post(`${Constants.DEFAULT_API}${endpoints}`, dataToAdd);
+    return data
+}
+export async function update(endpoints, dataToAdd, headers){
+    const {data:{data}} = await axios.patch(`${Constants.DEFAULT_API}${endpoints}`, dataToAdd, headers);
+    return data
+}
+export async function deleteItem(endpoints, headers){
+    const {data:{data}} = await axios.delete(`${Constants.DEFAULT_API}${endpoints}`, headers);
+    return data
 }
